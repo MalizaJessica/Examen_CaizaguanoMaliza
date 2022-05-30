@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Examen_CaizaguanoMaliza">
         <activity
+            android:name=".Pantalla2Activity_KC_JM"
+            android:exported="false" />
+        <activity
             android:name=".Pantalla1Activity_KC_JM"
             android:exported="false" />
         <activity
