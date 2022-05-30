@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">Examen_CaizaguanoMaliza</string>
+
+    <string name="txt_ingrese_numeros">Ingrese un numero</string>
+
+    <string name="btn_ingresar">Ingresar</string>
+    <string name="btn_segundoactivity">Segundo Activity</string>
+
+
+
+
 </resources>
