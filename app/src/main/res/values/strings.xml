@@ -10,7 +10,10 @@
     <string name="btn_mostrar">Mostrar</string>
 
     <string name="txt_original">Vector Original</string>
-    <string name="txt_indice">Vector Indice</string>
+    <string name="txt_indice">Vector Ordenado</string>
+
+    <string name="txt_orIndice">Vector Indice</string>
+
 
 
 

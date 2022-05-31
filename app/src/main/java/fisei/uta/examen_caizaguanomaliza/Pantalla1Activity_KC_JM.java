@@ -76,7 +76,7 @@ public class Pantalla1Activity_KC_JM extends AppCompatActivity {
             lstnumeros[j]= Integer.valueOf(lstDatosRecibidos[j]);
         }
 
-/*
+
         int[] ordenados = mayorMenor(lstnumeros);
 
 
@@ -89,9 +89,9 @@ public class Pantalla1Activity_KC_JM extends AppCompatActivity {
         ArrayAdapter<String> adapterIndice  = new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_1,lstDatosIndice);
         //asociar los datos
-        listViewDatosIndice.setAdapter(adapter);
+        listViewDatosIndice.setAdapter(adapterIndice);
 
-        */
+
 
 
     }
@@ -116,7 +116,7 @@ public class Pantalla1Activity_KC_JM extends AppCompatActivity {
                 j++;
             }while (j < lst.length);
             i++;
-        } while (i<lst.length);
+        } while (i<lst.length-1);
 
         return lst;
 
