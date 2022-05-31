@@ -20,11 +20,8 @@ public class Pantalla1Activity_KC_JM extends AppCompatActivity {
 
     String[] lstDatosRecibidos;
     ListView listViewDatosOriginal;
+    ListView listViewDatosIndice;
     List<String> lstDatos = new ArrayList<String>();
-
-
-
-
 
     ActivityResultLauncher<Intent> activityResult =
             registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
@@ -49,6 +46,7 @@ public class Pantalla1Activity_KC_JM extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pantalla1_kc_jm);
         listViewDatosOriginal = findViewById(R.id.listViewOriginal);
+        listViewDatosIndice = findViewById(R.id.listViewIndice);
 
     }
 
@@ -68,5 +66,44 @@ public class Pantalla1Activity_KC_JM extends AppCompatActivity {
                 android.R.layout.simple_list_item_1,lstDatos);
         //asociar los datos
         listViewDatosOriginal.setAdapter(adapter);
+
+
+        int[] lstnumeros = new int[lstDatosRecibidos.length];
+        for (int j=0 ; j<lstDatosRecibidos.length;i++){
+            lstnumeros[j]= Integer.valueOf(lstDatosRecibidos[i].toString());
+        }
+        int[] ordenados = mayorMenor()
+
+        ArrayAdapter<String> adapterIndice  = new ArrayAdapter<String>(this,
+                android.R.layout.simple_list_item_1,lstDatos);
+        //asociar los datos
+        listViewDatosIndice.setAdapter(adapter);
+
+    }
+
+
+
+    int aux;
+
+    public int[]  mayorMenor(int[] lst){
+
+        int[] lstnueva = new int[lst.length];
+        int i=0;
+        do {
+            int j=i+1;
+            do{
+                if (lst[i] < lst[j]){
+                 aux = lst[i];
+                   lst[i]=lst[j];
+                   lst[j]=aux;
+                }
+                j++;
+            }while (j < lst.length);
+            lstnueva[i]= lst[j];
+            i++;
+        } while (i<lst.length);
+
+        return lstnueva;
+
     }
 }

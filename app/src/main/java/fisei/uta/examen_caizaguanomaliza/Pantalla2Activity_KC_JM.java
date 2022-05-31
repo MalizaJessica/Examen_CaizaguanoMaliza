@@ -41,6 +41,7 @@ public class Pantalla2Activity_KC_JM extends AppCompatActivity {
                 android.R.layout.simple_list_item_1,lstDatos);
         //asociar los datos
         listViewDatos.setAdapter(adapter);
+        editTextnumero.setText("");
     }
 
     public void cerrar (View view) {
@@ -57,6 +58,8 @@ public class Pantalla2Activity_KC_JM extends AppCompatActivity {
         setResult(Activity.RESULT_OK, intent);
         finish();
     }
+
+
 
 
 }
