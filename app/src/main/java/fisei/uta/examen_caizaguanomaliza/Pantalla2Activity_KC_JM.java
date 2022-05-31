@@ -2,6 +2,8 @@ package fisei.uta.examen_caizaguanomaliza;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -41,15 +43,20 @@ public class Pantalla2Activity_KC_JM extends AppCompatActivity {
         listViewDatos.setAdapter(adapter);
     }
 
-    public List<String> cargarDatosListView() {
+    public void cerrar (View view) {
 
-        List<String> list = new ArrayList<String>();
 
-        for (int i =0; i<=22 ; i++) {
-            //String item = lstDatos[i];
-            ///list.add(item);
+        String[] lstDatosSalida = new String[contador];
+        for (int i=0; i<contador;i++){
+            lstDatosSalida[i]=lstDatos.get(i);
         }
 
-        return  list;
+        Intent intent = new Intent();
+        // intent.putExtra("apellidos",apellidos);
+        intent.putExtra("lstDatos", lstDatosSalida);
+        setResult(Activity.RESULT_OK, intent);
+        finish();
     }
+
+
 }
