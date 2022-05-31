@@ -23,6 +23,8 @@ public class Pantalla1Activity_KC_JM extends AppCompatActivity {
     ListView listViewDatosIndice;
     List<String> lstDatos = new ArrayList<String>();
 
+    List<String> lstDatosIndice = new ArrayList<String>();
+
     ActivityResultLauncher<Intent> activityResult =
             registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
                 @Override
@@ -67,17 +69,30 @@ public class Pantalla1Activity_KC_JM extends AppCompatActivity {
         //asociar los datos
         listViewDatosOriginal.setAdapter(adapter);
 
+//hasta  aqui bien
 
         int[] lstnumeros = new int[lstDatosRecibidos.length];
-        for (int j=0 ; j<lstDatosRecibidos.length;i++){
-            lstnumeros[j]= Integer.valueOf(lstDatosRecibidos[i].toString());
+        for (int j=0 ; j<lstDatosRecibidos.length;j++){
+            lstnumeros[j]= Integer.valueOf(lstDatosRecibidos[j]);
         }
-        int[] ordenados = mayorMenor()
+
+/*
+        int[] ordenados = mayorMenor(lstnumeros);
+
+
+        for (int h=0; h<ordenados.length;h++){
+            //lstDatosSalida[i]=lstDatos.get(i);
+            lstDatosIndice.add(String.valueOf(ordenados[h]));
+        }
+
 
         ArrayAdapter<String> adapterIndice  = new ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_1,lstDatos);
+                android.R.layout.simple_list_item_1,lstDatosIndice);
         //asociar los datos
         listViewDatosIndice.setAdapter(adapter);
+
+        */
+
 
     }
 
@@ -89,6 +104,7 @@ public class Pantalla1Activity_KC_JM extends AppCompatActivity {
 
         int[] lstnueva = new int[lst.length];
         int i=0;
+        int c=0;
         do {
             int j=i+1;
             do{
@@ -99,11 +115,10 @@ public class Pantalla1Activity_KC_JM extends AppCompatActivity {
                 }
                 j++;
             }while (j < lst.length);
-            lstnueva[i]= lst[j];
             i++;
         } while (i<lst.length);
 
-        return lstnueva;
+        return lst;
 
     }
 }
