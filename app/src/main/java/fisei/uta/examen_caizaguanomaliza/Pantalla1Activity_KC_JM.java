@@ -10,8 +10,20 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Pantalla1Activity_KC_JM extends AppCompatActivity {
+
+    String[] lstDatosRecibidos;
+    ListView listViewDatosOriginal;
+    List<String> lstDatos = new ArrayList<String>();
+
+
+
 
 
     ActivityResultLauncher<Intent> activityResult =
@@ -24,9 +36,9 @@ public class Pantalla1Activity_KC_JM extends AppCompatActivity {
                     {
                         //obtener los datos regresados
                         Intent data = result.getData();
-                        //Toast.makeText(MainActivity.this, "Datos regresados" + data.getDataString(), Toast.LENGTH_LONG).show();
-
-                        //textViewDatos.setText(data.getDataString());
+                        //obtener los datos regresados
+                        Bundle datos = result.getData().getExtras();
+                        lstDatosRecibidos = datos.getStringArray("lstDatos");
 
                     }
                 }
@@ -36,15 +48,25 @@ public class Pantalla1Activity_KC_JM extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pantalla1_kc_jm);
-
+        listViewDatosOriginal = findViewById(R.id.listViewOriginal);
 
     }
 
     public void segundoActivity (View view) {
-
         Intent intent = new Intent(this,Pantalla2Activity_KC_JM.class);
         activityResult.launch(intent);
+    }
 
+    public void mostrar(View view) {
 
+        for (int i=0; i<lstDatosRecibidos.length;i++){
+            //lstDatosSalida[i]=lstDatos.get(i);
+            lstDatos.add(lstDatosRecibidos[i]);
+        }
+
+        ArrayAdapter<String> adapter  = new ArrayAdapter<String>(this,
+                android.R.layout.simple_list_item_1,lstDatos);
+        //asociar los datos
+        listViewDatosOriginal.setAdapter(adapter);
     }
 }
